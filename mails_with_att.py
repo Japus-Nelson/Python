@@ -8,9 +8,9 @@ from string import Template
 from pathlib import Path
 import imghdr
 
-user_mail = 'japusnelson@gmail.com'
+user_mail = 'user_mail@gmail.com'
 app_pass = 'bcoyajqpqrvrugty'
-Rec_mail = 'japusjapus1134@gmail.com'
+Rec_mail = 'Receiving_mail@gmail.com'
 # File_name = Template(Path('thumbnail.jpg').read_text())
 
 email = EmailMessage()
