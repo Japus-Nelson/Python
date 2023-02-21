@@ -1,4 +1,4 @@
-import pdb
+# import pdb
 import sys             #for getting input from user
 import requests       #module to interact as a browser api
 import hashlib        # to hash our password
@@ -22,10 +22,8 @@ def get_password_leak_count(hexapass, tail_pass):
     hashes = (lines.split(':') for lines in (hexapass.text.splitlines()))
     for h, count in hashes:
         if h == tail_pass:
-            if count:
-                print(f'password appeared in pwned search totally {count} times. Try changing new')
-                return count
-    return f'Congrats, Your password is complaint and doesnt appeared in any pwned searches{0}'
+            return count
+    return 0
 
 
 def pass_hashing(password):
@@ -39,13 +37,26 @@ def pass_hashing(password):
     response = request_api_data(first_5)
     print(response)
     # checking the passwords leaked count
-    leak_count = get_password_leak_count(response, tail)
-    print(leak_count)
+    return get_password_leak_count(response, tail)
+
 
 
 def main(args):
     for password in args:
-        pass_hashing(password)
+        print(password)
+        count = (pass_hashing(password))
+        print(count)
+        if count:
+            print(f' Your password {password} has appeared {count} many times. Consider changing the password')
+        else:
+            print(f'congrats!. Your {password} was not pwned. It is secure')
+    return 'done!'
 
 
-main(sys.argv[1:])
+#To be more secure! Read the passwords from the text file.
+input_text = open(r"C:\Users\japus\Downloads\text.txt", 'r').read()
+read = input_text.splitlines()
+
+
+if __name__ == '__main__':
+    sys.exit(main(read))
