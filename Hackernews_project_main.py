@@ -17,9 +17,16 @@ soup1 = BeautifulSoup(next_page.text, 'html.parser')
 link1 = soup.select('.titleline')  # For just the link, use soup.a['href']) or for getting whole line use the code
 link2 = soup1.select('.titleline')
 
+# 5 either combine both the links, to view it in the same page
+mega_link = link1 + link2
+
 # 2. Grabbing the class subtext
 votes1 = (soup.select('.subtext'))    # score gives the no of votes the link has got.
 votes2 = soup1.select('.subtext')
+
+# 6. Same like links, combine the votes
+mega_votes = votes1 + votes2
+
 
 # 4. sorting the based on high number of votes.
 
@@ -29,7 +36,7 @@ def sort_stories_by_points(hackernews):
 # 5. Create a custom Hackernews that filters the content based on the votes.
 
 
-def cutsom_hacker_news(link, votes):
+def custom_hacker_news(link, votes):
     hacker_news = []
     for index, links in enumerate(link):
         title = links.getText()
@@ -44,9 +51,9 @@ def cutsom_hacker_news(link, votes):
     return sort_stories_by_points(hacker_news)      # calling the function that performs the sorting.
 
 
-pprint.pprint(cutsom_hacker_news(link1, votes1))
-pprint.pprint(cutsom_hacker_news(link2, votes2))    # pretty print makes our output looks good.
-
+pprint.pprint(custom_hacker_news(link1, votes1))    # first page
+pprint.pprint(custom_hacker_news(link2, votes2))    # second page # pretty print makes our output looks good.
+pprint.pprint(custom_hacker_news(mega_link, mega_votes))   # Both Pages
 
 # Look at scrapy for scrapping huge website.
 # Collect the data and store it somewhere in the db.
