@@ -10,7 +10,7 @@ You are given an immutable string, and you want to make changes to it.
 def mutate_string(string, position, character):
     l = list(string)
     # print(l)
-    l[5] = character
+    l[position] = character
     # print(l)
     s = ''.join(l)
     return s
@@ -21,6 +21,8 @@ if __name__ == '__main__':
     i, c = input().split()  # input().split()
     s_new = mutate_string(s, int(i), c)
     print(s_new)
+
+
 '''
 Input:
 abracadabra
@@ -30,3 +32,4 @@ k
 Output:
 abrackdabra
 '''
+
