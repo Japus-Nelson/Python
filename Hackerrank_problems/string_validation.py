@@ -30,3 +30,48 @@ if __name__ == '__main__':
     print(any(k.islower() for k in s))
     print(any(k.isupper() for k in s))
 
+    "Or" " Can use the below method"
+    a =0
+    for k in s:
+        if k.isalnum():
+            a += 1
+    if a > 0:
+        print(True)
+    else:
+        print(False)
+    a = 0
+    for k in s:
+        if k.isalpha():
+            a += 1
+    if a > 0:
+        print(True)
+    else:
+        print(False)
+    a = 0
+    for k in s:
+        if k.isdigit():
+            a += 1
+    if a > 0:
+        print(True)
+    else:
+        print(False)
+    a = 0
+    for k in s:
+        if k.islower():
+            a += 1
+    if a > 0:
+        print(True)
+    else:
+        print(False)
+    a = 0
+    for k in s:
+        if k.isupper():
+            a += 1
+    if a > 0:
+        print(True)
+    else:
+        print(False)
+
+
+
+
